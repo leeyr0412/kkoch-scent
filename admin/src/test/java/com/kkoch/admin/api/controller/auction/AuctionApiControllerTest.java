@@ -203,7 +203,7 @@ class AuctionApiControllerTest extends ControllerTestSupport {
                 )
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.data.title").value("title"));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.data").isNumber());
     }
 
     @Test

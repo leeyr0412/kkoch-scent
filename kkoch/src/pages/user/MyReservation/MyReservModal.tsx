@@ -82,8 +82,25 @@ export default function MyReservModal({ onReservationAdded }) {
     .catch(err => console.log(err)) 
   }
   return (
+    // .changePwbtn {
+    //   background-color: #FFC132;
+    //   color: black;
+    //   border: none;
+    //   padding: 8px 16px;
+    //   border-radius: 4px;
+    //   cursor: pointer;
+    //   display: flex;
+    //   align-items: center;
+    //   justify-content: center;
+    //   height: 70%;
+    // }
+    
+    // /* 버튼에 호버 효과 추가 (선택사항) */
+    // .changePwbtn:hover {
+    //   background-color: #F25477;
+    // }
     <>
-      <MDBBtn onClick={toggleShow}>화훼 예약 하기</MDBBtn>
+      <div className='bg-[#FFC132] color-black h-[40px] w-[140px] rounded-4 text-center pt-[7px] cursor-pointer hover:bg-[#F25477]' onClick={toggleShow}>화훼 예약 하기</div>
 
       <MDBModal tabIndex='-1' show={centredModal} setShow={setCentredModal}>
         <MDBModalDialog centered>
@@ -100,7 +117,7 @@ export default function MyReservModal({ onReservationAdded }) {
                 />
                 <div className='mt-3 flex justify-between'>
                   <Select
-                    className=""
+                    className="w-[100%]"
                     onChange={(e) => setGrade(e.value)}
                     options={gradeOptions}
                     placeholder="등급 선택"
@@ -110,7 +127,7 @@ export default function MyReservModal({ onReservationAdded }) {
                   />
 
                   <MDBInput
-                    className='w-[33%]'
+                    className=''
                     label='단수'
                     value={quantity}
                     type='number'
@@ -119,7 +136,7 @@ export default function MyReservModal({ onReservationAdded }) {
                     />
 
                   <MDBInput
-                    className='w-[33%]'
+                    className=''
                     label='가격'
                     value={price}
                     type='number'

@@ -18,7 +18,7 @@ public class StatsResponse {
 
     private int priceMin;
 
-    private Grade grade;
+    private String grade;
 
     private int count;
 
@@ -33,7 +33,7 @@ public class StatsResponse {
         this.priceAvg = priceAvg;
         this.priceMax = priceMax;
         this.priceMin = priceMin;
-        this.grade = grade;
+        this.grade = grade.getText();
         this.count = count;
         this.createdDate = createdDate.format(DateTimeFormatter.ofPattern("yyyy.MM.dd hh:mm"));
         this.type = type;

@@ -1,7 +1,7 @@
 .table-units {
   color: gray;
   margin-right: 100px;
-  font-size: x-small;
+  font-size: medium;
   position: absolute;
   top: 85px;
   right: 10px;
@@ -21,6 +21,7 @@
 
 .paging-title a {
   cursor: pointer;
+  font-size: 20px;
 }
 
 .paging-title a:hover{
@@ -49,6 +50,7 @@
   margin-left: 100px;
   color:black;
   font-weight: 700;
+  font-size: 20px;
 }
 
 .custom-row-sold {
@@ -58,14 +60,16 @@
 .MuiDataGrid-columnHeaders {
   background-color: #F25477;
   color: white;
-  font-weight: bold;
+  font-weight: bold ;
   margin-bottom: 4px;
+  font-size: 18px;
 }
 
 
 .MuiDataGrid-cell{
   background-color: white;
   text-align: center;
+  font-size: 15px;
 }
 
 .MuiDataGrid-footerContainer {
@@ -88,6 +92,11 @@
 .MuiDataGrid-cell a{
   color: black;
   font-weight: bold;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .custom-row-sold:hover {

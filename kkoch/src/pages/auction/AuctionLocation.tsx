@@ -2,16 +2,21 @@ import { useEffect } from "react";
 import { Navigate } from 'react-router-dom';
 import LocationButton from "@/components/buttons/LocationButton"
 import secureLocalStorage from 'react-secure-storage';
+import { toast } from "react-toastify";
 
 const ActionReady = () => {
   const location = ["aT화훼공판장(양재동)", "부산화훼공판장(엄궁동)", "광주원예농협(풍암)"
                     , "한국화훼농협(음성)", "부산경남화훼농협(강동동)", "한국화훼농협(과천)", "영남화훼농협(김해)"];
-  
-
   const isLoggedIn = secureLocalStorage.getItem("memberkey") && secureLocalStorage.getItem("token");
+  const needLogin = () => toast.info("로그인 후 이용 가능합니다.", {
+    position: "top-center",
+    hideProgressBar: true,
+    autoClose: 2000
+    }
+  )
   
   useEffect(() => {
-    !isLoggedIn && alert("로그인 후 이용 가능합니다.")
+    !isLoggedIn && needLogin();
   }, [isLoggedIn])
 
   return (
@@ -41,6 +46,7 @@ const ActionReady = () => {
         :
         <Navigate to='/login' replace={true} />
       }
+      
     </div>
   )
 }

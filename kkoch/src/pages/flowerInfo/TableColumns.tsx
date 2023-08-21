@@ -7,6 +7,7 @@ const CustomLinkCell = (params) => {
   const formatNumber = (number) => {
     return new Intl.NumberFormat('ko-KR').format(number);
   };
+
   return (
     <Link
       to={`/flowers/info/${row.type}/${row.name}`}

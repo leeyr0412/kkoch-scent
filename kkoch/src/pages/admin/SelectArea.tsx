@@ -6,12 +6,16 @@ const SelectArea = () => {
   
 
   return (
-    <section className="gap-16 bg-gray-20 py-10 "> 
-      <div className="flex items-center justify-center">
+    <section className="gap-16 bg-white absolute top-0 left-[5%] h-[100%] flex flex-col justify-center"> 
+      <div className="text-center">
+        <h1>관리자님 안녕하세요!</h1>
+        <br />
         <h1>경매를 진행할 지역을 선택해주세요</h1>
       </div>
 
-      <div className="flex items-center justify-center flex-col mt-[150px]">
+      <hr />
+
+      <div className="flex items-center justify-center flex-col mt-[50px]">
         <div>
           <LocationButton location={location[0]} type="admin"/>
           <LocationButton location={location[1]} type="admin"/>

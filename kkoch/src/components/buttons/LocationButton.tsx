@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import './LocationButton.css';
+import { toast } from 'react-toastify';
 
 type Props = {
 	location: React.ReactNode;
@@ -8,6 +9,16 @@ type Props = {
 
 const LocationButton = ({location, type } : Props) => {
 	const navigate = useNavigate();
+	const notifyAlert = () => toast.info("경매 시작 전입니다.", {
+		position:"top-center", // 알람 위치 지정
+		autoClose:2000, // 자동 off 시간 // 클릭으로 알람 닫기
+		theme:"light", // 알람 개수 제한
+	})
+	const blockLocation = () => toast.warning("서비스 준비중입니다.", {
+		position:"top-center",
+		autoClose: 2000,
+		theme: "light",
+	})
 
 	// 양재 지역만 활성화 하기 위한 handler
   const handleCheck = () => {
@@ -41,7 +52,7 @@ const LocationButton = ({location, type } : Props) => {
 
 							return;
 					}  else {
-						alert("경매 시작 전입니다.")
+						notifyAlert();
 						socket.close(); // 소캣 연결 종료
 					}
 				});
@@ -51,7 +62,7 @@ const LocationButton = ({location, type } : Props) => {
 				alert("잘못된 접근입니다.")
 			}
     } else {
-      alert("서비스 준비중 입니다");
+      blockLocation();
     }
   };
 
@@ -61,6 +72,7 @@ const LocationButton = ({location, type } : Props) => {
 			</span>
 		</button>
 		// <button className="locationBtn mx-6" onClick={handleCheck}>  </button>
+		
   )
 }
 

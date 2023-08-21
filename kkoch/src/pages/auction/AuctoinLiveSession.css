@@ -15,7 +15,16 @@
 
 .join-button {
   color:white;
-  background-color: #FF3328;
+  background-color: red;
+  font-weight: 700;
+  border-radius: 10px;
+  width: 130px;
+  height: 40px;
+}
+
+.join-button-green {
+  color:white;
+  background-color: green;
   font-weight: 700;
   border-radius: 10px;
   width: 130px;

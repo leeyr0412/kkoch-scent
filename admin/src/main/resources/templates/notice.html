@@ -498,7 +498,7 @@
         deleteButtons.forEach(deleteButton => {
             deleteButton.addEventListener('click', async function () {
                 try {
-                    const response = await fetch('/admin-service/intranet/' + findId + '/remove', {
+                    const response = await fetch('https://i9c204.p.ssafy.io/api/admin-service/intranet/' + findId + '/remove', {
                         method: 'POST',
 
                     })
@@ -550,7 +550,7 @@
                         aria-label="Close"
                 ></button>
             </div>
-            <form class="modal-body" th:action="@{/admin-service/intranet/notice/add}" method="post"
+            <form class="modal-body" th:action="@{https://i9c204.p.ssafy.io/api/admin-service/intranet/notice/add}" method="post"
                   th:object="${form}">
                 <div class="mb-3">
                     <label for="title" class="form-label"

@@ -97,8 +97,8 @@ const MyProfile = () => {
   useEffect(() => {
     axios({
       method: 'get',
-      // url: `https://i9c204.p.ssafy.io/api/user-service/${secureLocalStorage.getItem('memberkey')}/reservations?pageNum=0`,
-      url: `/api/api/user-service/${secureLocalStorage.getItem('memberkey')}/reservations?pageNum=0`,
+      url: `https://i9c204.p.ssafy.io/api/user-service/${secureLocalStorage.getItem('memberkey')}/reservations?pageNum=0`,
+      // url: `/api/api/user-service/${secureLocalStorage.getItem('memberkey')}/reservations?pageNum=0`,
       headers: {
         Authorization: `Bearer ${secureLocalStorage.getItem("token")}`
       }
@@ -112,8 +112,8 @@ const MyProfile = () => {
   
     axios({
       method: "get",
-      // url: `https://i9c204.p.ssafy.io/api/admin-service/trades/${secureLocalStorage.getItem("memberkey")}?term=1&page=0`,
-      url: `/api/api/admin-service/trades/${secureLocalStorage.getItem("memberkey")}?term=1&page=0`,
+      url: `https://i9c204.p.ssafy.io/api/admin-service/trades/${secureLocalStorage.getItem("memberkey")}?term=1&page=0`,
+      // url: `/api/api/admin-service/trades/${secureLocalStorage.getItem("memberkey")}?term=1&page=0`,
       headers: {
         Authorization: `Bearer ${secureLocalStorage.getItem("token")}`
       }
@@ -127,8 +127,8 @@ const MyProfile = () => {
   
     axios({
       method: 'get',
-      // url: `https://i9c204.p.ssafy.io/api/user-service/${secureLocalStorage.getItem("memberkey")}`,
-      url: `/api/api/user-service/${secureLocalStorage.getItem("memberkey")}`,
+      url: `https://i9c204.p.ssafy.io/api/user-service/${secureLocalStorage.getItem("memberkey")}`,
+      // url: `/api/api/user-service/${secureLocalStorage.getItem("memberkey")}`,
       headers: {
         Authorization: `Bearer ${secureLocalStorage.getItem("token")}`
       }
@@ -148,7 +148,8 @@ const MyProfile = () => {
     
     axios({
       method: "patch",
-      url: `/api/api/user-service/${secureLocalStorage.getItem("memberkey")}/pwd`,
+      // url: `/api/api/user-service/${secureLocalStorage.getItem("memberkey")}/pwd`,
+      url: `https://i9c204.p.ssafy.io/api/user-service/${secureLocalStorage.getItem("memberkey")}/pwd`,
       headers: {
         "Content-Type" : "application/json",
         Authorization : `Bearer ${secureLocalStorage.getItem("token")}`

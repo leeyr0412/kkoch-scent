@@ -10,6 +10,7 @@ import secureLocalStorage from "react-secure-storage";
 import axios from "axios";
 import "./index.css"
 import { RootState } from "@/reducer/store";
+import { ToastContainer } from "react-toastify";
 // import ActionButton from "@/shared/ActionButton";
 
 type Props = {
@@ -46,7 +47,8 @@ const Navbar = ({isTop} : Props) => {
     if (isLoggedIn) {
       axios({
         method: "get",
-        url: `/api/api/user-service/${secureLocalStorage.getItem("memberkey")}`,
+        // url: `/api/api/user-service/${secureLocalStorage.getItem("memberkey")}`,
+        url: `https://i9c204.p.ssafy.io/api/user-service/${secureLocalStorage.getItem("memberkey")}`,
         headers: {
           Authorization: `Bearer ${secureLocalStorage.getItem("token")}`,
         },
@@ -169,7 +171,7 @@ const Navbar = ({isTop} : Props) => {
                             getNotification()
                           }}
                         >
-                          <BellAlertIcon className="h-10 w-10 text-blue-500"/>
+                          <BellAlertIcon className="h-10 w-10 text-red-500"/>
                         </button>
                         <button className="flex justify-between items-center" 
                                 onClick={() => {
@@ -177,7 +179,7 @@ const Navbar = ({isTop} : Props) => {
                                   setDropdownOpen(!isDropdownOpen);
                                 }}
                         >
-                          <UserCircleIcon  className="h-10 w-10 text-blue-500"/>
+                          <UserCircleIcon  className="h-10 w-10 text-red-500"/>
                           <span className="text-xl">{username}님</span>
                         </button>
                       </div>
@@ -257,6 +259,7 @@ const Navbar = ({isTop} : Props) => {
           ))}
         </div>
       )}
+      <ToastContainer limit={1}/>
     </nav>
   )
 }

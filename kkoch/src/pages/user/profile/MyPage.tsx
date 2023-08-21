@@ -43,17 +43,23 @@ const MyPage = () => {
           <MDBTabs className='rounded-3'>
             <MDBTabsItem>
               <MDBTabsLink onClick={() => handleBasicClick('tab1')} active={basicActive === 'tab1'}>
-                프로필 변경
+                <span className='text-base'>
+                  프로필 변경
+                </span>
               </MDBTabsLink>
             </MDBTabsItem>
             <MDBTabsItem>
               <MDBTabsLink onClick={() => handleBasicClick('tab2')} active={basicActive === 'tab2'}>
-                낙찰 현황
+                <span className='text-base'>
+                  낙찰 현황
+                </span>
               </MDBTabsLink>
             </MDBTabsItem>
             <MDBTabsItem>
               <MDBTabsLink onClick={() => handleBasicClick('tab3')} active={basicActive === 'tab3'}>
-                화훼 예약 현황
+                <span className='text-base'>
+                  화훼 예약 현황
+                </span>
               </MDBTabsLink>
             </MDBTabsItem>
           </MDBTabs>

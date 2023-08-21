@@ -50,8 +50,8 @@ const TestComponent = (props) => {
     setIsLoading(true);
     axios({
       method: "get",
-      // url: `https://i9c204.p.ssafy.io/api/admin-service/auction-articles/api?startDateTime=${formatDate(weekagoDate)}&endDateTime=${formatDate(todayDate)}&code=${codeData}`
-      url: `/api/api/admin-service/auction-articles/api?startDateTime=${formatDate(weekagoDate)}&endDateTime=${formatDate(todayDate)}&code=${codeData}`
+      url: `https://i9c204.p.ssafy.io/api/admin-service/auction-articles/api?startDateTime=${formatDate(weekagoDate)}&endDateTime=${formatDate(todayDate)}&code=${codeData}`
+      // url: `/api/api/admin-service/auction-articles/api?startDateTime=${formatDate(weekagoDate)}&endDateTime=${formatDate(todayDate)}&code=${codeData}`
     })
     .then((res) => {
       const dataWithId = res.data.data.content.map((item, index) => ({
@@ -101,7 +101,7 @@ const TestComponent = (props) => {
         <div className='table-title'>
           실시간 거래 현황
           <span className='table-units'>
-            단위: 원
+            (단위: 원)
           </span>
         </div>
       </div>

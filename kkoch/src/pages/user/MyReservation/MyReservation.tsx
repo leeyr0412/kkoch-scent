@@ -9,13 +9,13 @@ import axios from "axios";
 const initailRows: GridRowsProp = [];
 
 const columns: GridColDef[] = [
-  { field: 'col1', headerName: 'No', width: 110 },
-  { field: 'col2', headerName: '품목', width: 140 },
-  { field: 'col3', headerName: '품종', width: 140 },
-  { field: 'col4', headerName: '등급', width: 140 },
-  { field: 'col5', headerName: '단수', width: 140 },
-  { field: 'col6', headerName: '가격', width: 140 },
-  { field: 'col7', headerName: '예약 관리', width: 140 },
+  { field: 'col1', headerName: 'No', width: 140 },
+  { field: 'col2', headerName: '품목', width: 190 },
+  { field: 'col3', headerName: '품종', width: 190 },
+  { field: 'col4', headerName: '등급', width: 190 },
+  { field: 'col5', headerName: '단수', width: 190 },
+  { field: 'col6', headerName: '가격', width: 190 },
+  { field: 'col7', headerName: '예약 관리', width: 190 },
 ];
 
 const MyReservation = () => {
@@ -41,7 +41,7 @@ const MyReservation = () => {
         col4: item.grade,
         col5: item.count,
         col6: `${item.price} 원`,
-        col7: "낙찰 성공",
+        col7: "낙찰 대기",
       }))
       
       setRows(formattedData);
@@ -75,7 +75,6 @@ const MyReservation = () => {
             }
           />
         </div>
-
       </MDBCardBody>
     </MDBCard>
   )

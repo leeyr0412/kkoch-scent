@@ -6,6 +6,11 @@
 
 ---
 
+# 🎬UCC
+[<img style="width: 70%;" src="./readme_assets/image/ucc.png">](https://youtu.be/yVuPLKurLtI)
+
+※ 이미지 클릭시 UCC youtube 이동 
+
 # 🌻서비스 소개
 
 꽃향기는 화훼 경매에 참여하는 도매상들을 위한 실시간 온라인 화훼 경매 서비스 입니다.
@@ -45,7 +50,7 @@
 
 | <img src="./readme_assets/image/websockets.png" alt="Socket.io" width="100px" /> | <img src="https://mui.com/static/logo.png" alt="MUI" width="100px" height="100px" /> | <img src="./readme_assets/image/tailwind.png" alt="Tailwind CSS" width="100px" height="100px" /> |
 |:--------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------:|
-|                                    Socket.io                                     |                                         MUI                                          |                                           Tailwind CSS                                           |
+|                                    WebSocket                                     |                                         MUI                                          |                                           Tailwind CSS                                           |
 
 ### Back-end
 
@@ -99,6 +104,77 @@
 
 <img src="./readme_assets/image/erd.png">
 
+### MockUp
+
+[<img src="./readme_assets/image/MockUp.png">](https://www.figma.com/file/tM0ZWDVhY2laCRiY6OwMhO/c204?type=design&node-id=0%3A1&mode=design&t=2jhkzdKds3yUFIqh-1)
+
+※ 이미지 클릭시 Figma 이동
+
+
+---
+
+
+# 🌺 꽃향기 주요 서비스
+
+## 🌸 Main
+- 꽃향기 서비스 메인 페이지 소개
+<p align="center">
+  <img src="./readme_assets/image/main1.png" width="48%"/>
+  <img src="./readme_assets/image/main2.png" width="48%"/>
+</p>
+
+
+
+## 🥀 Data
+- 화훼 상세 정보 
+- 실시간 낙찰 현황 조회
+- 화훼 별로 차트 제공
+<p align="center">
+  <img src="./readme_assets/image/search1.png" width="48%"/>
+  <img src="./readme_assets/image/search2.png" width="48%"/>
+</p>
+
+## 🌻 Reservation
+- 마이페이지에서 예약등록 및 내역 조회
+- 화훼 낙찰 시세를 보고 예약
+- 단수 제한, 당일 예약 횟수 제한
+<p align="center">
+  <img src="./readme_assets/image/reservation1.png" width="48%"/>
+  <img src="./readme_assets/image/reservation2.png" width="48%"/>
+</p>
+
+## 🌼 Auction
+### 👩‍🏫 관리자 
+- 관리자는 인트라넷을 통해 경매방을 생성
+- 모든 도매업자들을 볼 수 있음
+- 로그를 통해 누가 들어왔는지 나갔는지 또는 입찰했는지 확인 가능
+<p align="center">
+  <img src="./readme_assets/image/admin1.png" width="33%"/>
+  <img src="./readme_assets/image/admin2.png" width="33%"/>
+  <img src="./readme_assets/image/admin3.png" width="33%"/>
+</p>
+
+- 식물, 카테고리, 경매일정, 경매품 조회, 등록, 수정, 삭제 기능
+<p align="center">
+  <img src="https://github.com/Team-MukJa/MukJa-FE/assets/107923409/ee0b88b3-b11c-4738-ae55-c4b1e1de8819" width="33%"/>
+  <img src="https://github.com/Team-MukJa/MukJa-FE/assets/107923409/d242cdea-e2a7-4b50-a2ed-8d368154bf0d" width="33%"/>
+  <img src="https://github.com/Team-MukJa/MukJa-FE/assets/107923409/b6434e4b-93c6-406f-9eeb-15988bb1f048" width="33%"/>
+</p>
+
+### 👨‍🌾 도매업자 
+- 도매업자는 경매방이 생기면 참여가 가능
+- 카메라를 켜야 입장가능
+- 관리자 화면이 보이고 꽃을 생중계로 볼 수 있음
+- 차트를 통해 가격이 떨어지는 정보, 화훼 정보 확인가능
+<p align="center">
+  <img src="./readme_assets/image/user1.png" width="33%"/>
+  <img src="./readme_assets/image/user2.png" width="33%"/>
+  <img src="./readme_assets/image/user3.png" width="33%"/>
+</p>
+
+
+
+
 ## 👨‍👩‍👧‍👦팀 소개
 
 <table align="center">
@@ -126,7 +202,7 @@
         </td>
         <td style="min-width: 150px;">
             <a href="https://github.com/soo0300">
-              <img src="./readme_assets/profile/ksj.png" width="200">
+              <img src="/uploads/348a9814b2008c7659d4cf278ff1757b/입사지원사진.jpg" width="180"  height="160">
               <br />
               <b>soo0300</b>
             </a> 
@@ -167,6 +243,8 @@
         </td>
     </tr>
 </table>
+
+
 
 ## 커밋 컨벤션
 

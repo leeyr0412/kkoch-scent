@@ -6,6 +6,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import UserVideoComponent from './UserVideoComponent';
 import WebSocketComponent from '@/components/webSocket/webSocket';
 import './AuctoinLiveSession.css';
+import AuctionWaiting from './AuctionWaitingRoom';
+import { toast } from 'react-toastify';
 
 const AuctionWaitingRoom: React.FC = () => {
   const location = useLocation();
@@ -20,12 +22,17 @@ const AuctionWaitingRoom: React.FC = () => {
   const [subscribers, setSubscribers] = useState([]);
   const [publisher, setPublisher] = useState(undefined);
   const [currentVideoDevice, setCurrentVideoDevice] = useState(null);
-  const [token, setToken] = useState(''); // openVidu 세션 요청에 필요한 토큰
+  // const [token, setToken] = useState(''); // openVidu 세션 요청에 필요한 토큰
   const [isCameraOn, setIsCameraOn] = useState<boolean>(false);
   const OV = useRef(new OpenVidu());
-  
+
   console.log(sessionId);
   const subscriberContainer = useRef<HTMLDivElement | null>(null);
+  const cameraNotify= () => toast.error('카메라를 켜주세요!', {
+    position:"top-center", // 알람 위치 지정
+    autoClose:2000, // 자동 off 시간
+    theme:"light"
+  });
 
   useEffect(() => {
     setMySessionId(sessionId);
@@ -172,28 +179,29 @@ const AuctionWaitingRoom: React.FC = () => {
 
   // 카메라 상태를 토글하는 함수
   const toggleCamera = () => {
-    if (publisher) {
-      // console.log('카메라상태', isCameraOn)
-      if (isCameraOn) {
-        publisher.publishVideo(false); // 카메라 끄기
-      } else {
-        publisher.publishVideo(true); // 카메라 켜기
-      }
-      setIsCameraOn((prev) => !prev); // isCameraOn 상태를 반전시킴
-    }
+    // if (publisher) {
+      // if (isCameraOn) {
+        //   publisher.publishVideo(false); // 카메라 끄기
+        // } else {
+          //   publisher.publishVideo(true); // 카메라 켜기
+          // }
+          setIsCameraOn((prev) => !prev); // isCameraOn 상태를 반전시킴
+          console.log('카메라상태', isCameraOn)
+    // }
   };
 
   return (
     <div className="container gap-16 bg-gray-20 py-10">
       <h1 className='title-content-center'>aT화훼 공판장 (양재동) 경매방</h1>
-
       {session === undefined ? (
         <div id="join">
           <div className="mx-auto w-5/6 items-center justify-center md:flex md:flex-wrap md:h-5/6">
             {isCameraOn ? (
-              <div ref={subscriberContainer} className='w-full flex justify-center'></div>
-            ) : (
-              <img src={CameraOff} alt="" />
+              <AuctionWaiting />
+              // <div ref={subscriberContainer} className='w-full flex justify-center'>
+              // </div>
+              ) : (
+                <img src={CameraOff} alt="" />
             )}
           </div>
           {/* 구독자들 렌더링 */}
@@ -202,7 +210,18 @@ const AuctionWaitingRoom: React.FC = () => {
           ))}
           <div className='button-container'>
             <button className='camera-button' onClick={toggleCamera}>{isCameraOn ? '카메라 끄기' : '카메라 켜기'}</button>
-            <button className='join-button' onClick={joinSession}>입장하기</button>
+            <button className={`join-button ${isCameraOn ? 'join-button-green' : 'join-button-red'}`} onClick={() => {
+              if (!isCameraOn) {
+                // alert('카메라를 먼저 켜주세요.');
+                // return;
+                cameraNotify();
+                return;
+              }
+              joinSession();
+            }}
+            >
+              입장하기
+            </button>
             {/* <Link to='/auction/liveroom' state={{ auctionArticles: auctionArticles, sessionId: mySessionId}}>
             </Link> */}
           </div>
@@ -226,31 +245,31 @@ const AuctionWaitingRoom: React.FC = () => {
           <hr />
 
           <div className='flex justify-between'>
-            <div id="video-container" className="col-md-6">
+            <div id="video-container" className="col-md-6" >
               {subscribers.map((sub, i) => (
                 JSON.parse(sub.stream.connection.data).clientData && (
-                  <div key={sub.id} className="stream-container col-md-6 col-xs-6">
+                  <div key={sub.id} className="stream-container">
                     <UserVideoComponent streamManager={sub} />
                   </div>
                 )
-              ))}
+                ))}
             </div>
-            <WebSocketComponent />
+              <WebSocketComponent />
           </div>
         </div>
       ) : null}
       {/* <div className='button-container'>
         <div>
-          <button className='normal-button'>마이크 켜기</button>
+        <button className='normal-button'>마이크 켜기</button>
         </div>
         <div>
-          <button className='normal-button'>비디오 켜기</button>
+        <button className='normal-button'>비디오 켜기</button>
         </div>
         <div>
-          <button className='normal-button'>위시리스트 보기</button>
+        <button className='normal-button'>위시리스트 보기</button>
         </div>
         <div>
-          <button className='normal-button'>금일 경매 목록</button>
+        <button className='normal-button'>금일 경매 목록</button>
         </div>
       </div> */}
     </div> 

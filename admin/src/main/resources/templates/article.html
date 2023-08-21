@@ -601,7 +601,7 @@
 
             console.log(plantType + " " + plantName);
 
-            const uri = '/admin-service/plants/reservation'; // 백엔드 API 경로
+            const uri = 'https://i9c204.p.ssafy.io/api/admin-service/plants/reservation'; // 백엔드 API 경로
             const params = {
                 type: plantType,
                 name: plantName
@@ -625,7 +625,7 @@
 
 
             // 백엔드 API 호출
-            const uri = '/admin-service/auction-articles'; // 백엔드 API 경로
+            const uri = 'https://i9c204.p.ssafy.io/api/admin-service/auction-articles'; // 백엔드 API 경로
             const params = {
                     plantId: plantId,
                     auctionId: auctionId,
@@ -646,7 +646,7 @@
 
         function updateTypeSelect(selectedCode) {
             // 댓글 저장
-            const uri = `/admin-service/categories/` + selectedCode;
+            const uri = `https://i9c204.p.ssafy.io/api/admin-service/categories/` + selectedCode;
             const params = {}
             const response = getJson(uri, params);
 
@@ -668,7 +668,7 @@
 
         function updateNameSelect(selectedType) {
             // 댓글 저장
-            const uri = `/admin-service/categories/` + selectedType;
+            const uri = `https://i9c204.p.ssafy.io/api/admin-service/categories/` + selectedType;
             const params = {}
             const response = getJson(uri, params);
 

@@ -513,7 +513,7 @@
                         </td>
                         <td>
                             <a
-                               th:href="@{/admin-service/intranet/articles/{auctionId}(auctionId=${auction.auctionId})}">
+                               th:href="@{https://i9c204.p.ssafy.io/api/admin-service/intranet/articles/{auctionId}(auctionId=${auction.auctionId})}">
                                 <span class="link-text">관리</span>
                             </a>
                         </td>
@@ -580,7 +580,7 @@
 <script th:inline="javascript">
     function updateStatus(newStatus, auctionId) {
         // AJAX 요청 생성
-        const uri = '/admin-service/auctions/' + auctionId + "/" + newStatus; // 백엔드 API 경로
+        const uri = 'https://i9c204.p.ssafy.io/api/admin-service/auctions/' + auctionId + "/" + newStatus; // 백엔드 API 경로
         const params = {};
 
         callApi(uri, 'patch', params);
@@ -613,7 +613,7 @@
 
         const formattedTime = moment(auctionTime).format("YYYY-MM-DDTHH:mm:sszz")
         // 백엔드 API 호출
-        const uri = '/admin-service/auctions'; // 백엔드 API 경로
+        const uri = 'https://i9c204.p.ssafy.io/api/admin-service/auctions'; // 백엔드 API 경로
         const params = {
             code: selecteCode,
             startTime: formattedTime

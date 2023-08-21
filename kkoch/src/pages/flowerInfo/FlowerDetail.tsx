@@ -9,6 +9,7 @@ const FlowerDetail = () => {
   const location = useLocation();
   const flowerData = location.state?.flowerData;
   const [loading, setLoading] = useState(true);
+  console.log("가져온 꽃", flowerData)
 
 
   const formatDate = (timestamp) => {
@@ -22,31 +23,20 @@ const FlowerDetail = () => {
     return `${year}-${month}-${day}`;
   };
 
-  // const getSearchDay = (selection) => {
-  //   switch (selection) {
-  //     case 'one-week':
-  //       return 7;
-  //     case 'one_month':
-  //       return 30;
-  //     case 'six_months':
-  //       return 180;
-  //     case 'one_year':
-  //       return 365;
-  //     default:
-  //       return 7; // 기본값은 1주일로 설정
-  //   }
-  // };
-
-  // const series = flowerSeries;
-  // const [selection, setSelection] = useState('one-week');
+  console.log("오늘날짜요", formatDate(new Date()))
 
   const [series, setSeries] = useState([]);
-  const [todayList, setTodayList] = useState([]);
+  const [todayList, setTodayList] = useState({
+    priceMin: null,
+    priceMax: null,
+    priceAvg: null
+  });
 
+  console.log("오늘오느롱늘", todayList)
   const response = () => {
     axios({
-      url: '/api/api/admin-service/stats',
-      // url: 'https://i9c204.p.ssafy.io/api/admin-service/stats',
+      // url: '/api/api/admin-service/stats',
+      url: 'https://i9c204.p.ssafy.io/api/admin-service/stats',
       method: 'get',
       params: {
         type: flowerData.type,
@@ -63,16 +53,20 @@ const FlowerDetail = () => {
       // rawData를 순회하며 grade별로 데이터를 분류
       rawData.forEach(item => {
         const { grade } = item;
+        // console.log(formatDate(new Date(item.createdDate)), formatDate(new Date()))
         
-        if (formatDate(new Date(item.createdDate)) === "2023-8-7" && item.grade === "SUPER") {
+        if (formatDate(new Date(item.createdDate)) === formatDate(new Date()) && item.grade === flowerData.grade) {
           setTodayList(item);
           setLoading(false);
-          // console.log("11111", todayList)
+          console.log("11111", todayList)
         }
         if (!dataByGrade[grade]) {
           dataByGrade[grade] = [];
         }
         dataByGrade[grade].push(item);
+        // 해당날짜의 가격 data가 없으면
+        setLoading(false);
+        // console.log("데이터바이그레이드", dataByGrade)
       });
 
       // console.log("!!!!", formatDate(new Date(rawData[0].createdDate)))
@@ -81,18 +75,18 @@ const FlowerDetail = () => {
       setSeries([
         { 
           name: "보통",
-          data: dataByGrade["NORMAL"] ? dataByGrade["NORMAL"].map(item => [new Date(item.createdDate).getTime(), item.priceAvg]) : [],
-          color: "#fba1b7",
+          data: dataByGrade["보통"] ? dataByGrade["보통"].map(item => [new Date(item.createdDate).getTime(), item.priceAvg]) : [],
+          color: "#ffdbaa",
         },
         { 
           name: "상급",
-          data: dataByGrade["ADVANCED"] ? dataByGrade["ADVANCED"].map(item => [new Date(item.createdDate).getTime(), item.priceAvg]) : [],
+          data: dataByGrade["상급"] ? dataByGrade["상급"].map(item => [new Date(item.createdDate).getTime(), item.priceAvg]) : [],
           color: "#CBC3D2",
         },
         { 
           name: "특급",
-          data: dataByGrade["SUPER"] ? dataByGrade["SUPER"].map(item => [new Date(item.createdDate).getTime(), item.priceAvg]) : [],
-          color: "#ffdbaa",
+          data: dataByGrade["특급"] ? dataByGrade["특급"].map(item => [new Date(item.createdDate).getTime(), item.priceAvg]) : [],
+          color: "#fba1b7",
         },
       ]);
       
@@ -117,7 +111,9 @@ const FlowerDetail = () => {
       </div>
       <div>
         {loading ? (
-          <div>Loading...</div>
+          <div>
+            {/* Loading... */}
+          </div>
         ) : (
           <>
             <FlowerPrice todayList={todayList} />

@@ -43,13 +43,13 @@ const HomeAuction = () => {
             <div className="relative">
               <div className="before:absolute before:-top-20 before:-left-20 before:z-[-1] md:before:content-backgroundImage">
                 <p className="fontFamily-montserrat font-extrabold text-5xl">
-                  실시간 꽃 경매 시스템
+                  실시간 화훼 경매 시스템
                 </p>
               </div>
             </div>
             
             <p className="mt-8 text-sm">
-              소개
+              이제는 어디서든 실시간으로 화훼 경매에 참여해보세요
             </p>
           </motion.div>
 

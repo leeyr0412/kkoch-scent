@@ -564,7 +564,8 @@
 
 
             // 백엔드 API 호출
-            const uri = '/admin-service/categories'; // 백엔드 API 경로
+            const uri = 'https://i9c204.p.ssafy.io/api/admin-service/categories'; // 백엔드 API 경로
+
             const params = {
                 name: categoryName,
                 parentId: pId
@@ -579,7 +580,8 @@
 
     function updateTypeSelect(selectedCode) {
         // 댓글 저장
-        const uri = `/admin-service/categories/` + selectedCode;
+        const uri = `https://i9c204.p.ssafy.io/api/admin-service/categories/` + selectedCode;
+
         const params = {}
         const response = getJson(uri, params);
 
@@ -601,7 +603,7 @@
 
     function updateNameSelect(selectedType) {
         // 댓글 저장
-        const uri = `/admin-service/categories/` + selectedType;
+        const uri = `https://i9c204.p.ssafy.io/api/admin-service/categories/` + selectedType;
         const params = {}
         const response = getJson(uri, params);
 

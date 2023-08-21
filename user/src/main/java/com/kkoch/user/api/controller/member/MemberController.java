@@ -97,5 +97,10 @@ public class MemberController {
         return ApiResponse.ok(result);
     }
 
+    @GetMapping("/members")
+    public List<MemberResponseForAdmin> getUsers() {
+        return memberQueryService.getUsers();
+    }
+
 
 }

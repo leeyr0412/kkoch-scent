@@ -1,3 +1,11 @@
+.admin {
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 5%;
+  width: 90%;
+}
+
 .btn-conteiner {
   display: flex;
   justify-content: center;

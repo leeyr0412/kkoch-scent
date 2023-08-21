@@ -545,7 +545,7 @@
             };
 
             try {
-                const response = callApi(`/admin-service/admins/${findId}`, 'patch', params);
+                const response = callApi(`https://i9c204.p.ssafy.io/api/admin-service/admins/${findId}`, 'patch', params);
                 console.log('API 호출 결과:', response);
                 // 성공적으로 처리된 경우에 대한 로직 추가
 
@@ -558,7 +558,7 @@
 
         deleteButtons.forEach(deleteButton => {
             deleteButton.addEventListener('click', async function () {
-                callApi(`/admin-service/admins/${findId}`, 'delete');
+                callApi(`https://i9c204.p.ssafy.io/api/admin-service/admins/${findId}`, 'delete');
                 window.location.reload();
 
             });
@@ -603,7 +603,7 @@
                         aria-label="Close"
                 ></button>
             </div>
-            <form class="modal-body" th:action="@{/admin-service/intranet/admins/add}" method="post" th:object="${form}">
+            <form class="modal-body" th:action="@{https://i9c204.p.ssafy.io/api/admin-service/intranet/admins/add}" method="post" th:object="${form}">
                 <div class="mb-3">
                     <label for="loginId" class="form-label"
                     >아이디</label

@@ -42,8 +42,8 @@ public class AuctionArticleQueryRepository {
         QCategory name = new QCategory("name");
 
         return getAuctionArticleByPeriodSearchCond(cond, code, name, type)
-                .limit(pageable.getPageSize())
-                .offset(pageable.getOffset())
+//                .limit(pageable.getPageSize())
+//                .offset(pageable.getOffset())
                 .fetch();
     }
 
